@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="{% static 'register/accueil.css' %}">
+
+
+</head>
+
+<body>
+
+    <div class="register">
+        {% if request.user.is_authenticated %}
+        <a href="{% url 'register:logout' %}">deconnecter</a>
+
+        {% endif %}
+        <div class="sign">
+            <div class="row">
+                <form class="col s12" method="POST">
+                    {% csrf_token %}
+                    <p>Remplisser le formlaire pour vous connecter</p>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="email" type="email" name='email_c' class="validate">
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="password" name="password_c" type="password" class="validate">
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <input name="conect" type="submit" class="btn green white-text col s4" value="se connecter">
+                    </div>
+                </form>
+            </div>
+            <div class="sign-in">
+                <div class="row">
+                    <form class="col s12" method="POST">
+                        {% csrf_token %}
+                        <p class="center">Remplisser le formlaire pour vous inscrire</p>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input placeholder="Placeholder" name="full_name" id="first_name" type="text"
+                                    class="validate">
+                                <label for="first_name">Nom et prénom<label>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="email_s" type="email" name="email_s" class="validate">
+                                <label for="email_s">Email</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="password_s" name="password_s" type="password" class="validate">
+                                <label for="password_s">Password</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <input type="submit" class="btn green white-text col s4" value="S'inscrire" name="sign">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .register {
+            margin: 5% 25%;
+        }
+    </style>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+
+</html>

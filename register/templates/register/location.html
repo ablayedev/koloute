@@ -1,0 +1,199 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+  <link rel="stylesheet" href="{% static 'register/css/accueil.css' %}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+</head>
+
+<body>
+  <h2 class="center">{{ request.user.first_name }}</h2>
+  <h4 class="center animated fadeInUp green white-text">{{message}}</h4>
+  <div class="register">
+    {% if request.user.is_authenticated %}
+    <a href="{% url 'register:logout' %}">deconnecter</a>
+
+    <div class="row">
+      {% for station in stations %}
+      <div class="col s12 m4">
+        <div class="box">
+          <div>
+            <img src="{% static 'register/image/esp.jpg' %}" width="100" />
+            <span>
+              <p>{{ station.nom_station }}</p>
+            </span>
+          </div>
+          <div>
+            <!-- <p>Statut de la station: <span class="green-text">offline</span> </p>-->
+            <p>
+              Nombre de box total: <span>{{ station.boxes }}</span>
+            </p>
+            <p>
+              Nombre de box libre: <span>{{ station.boxe_libre }}</span>
+            </p>
+            <p></p>
+          </div>
+          <div>
+            {% if station.boxe_libre > 0 %}
+            <a class="modal-trigger" href="#modal1">Choisir la station</a>
+
+            {% else %}
+            <a href="#">La station ne présente pas de box libre</a>
+            {% endif %}
+          </div>
+          <br />
+          <div style="display: none !important;">
+            <form action="" class="content-box-libre" method="POST">
+              <h5>
+                Nous vous attribuons le
+                <span class="green-text">box {{ station.choice_box.id }}</span>
+                de la
+                <span class="blue-text">station {{ station.nom_station }}</span>
+              </h5>
+              <input type="number" value="{{ station.choice_box.id }}" class="box-id" name="box-id"
+                style="visibility: hidden;position: absolute;" />
+              <p style="display: flex;align-items: center;width:200px;justify-content: space-between;">
+                <span>Votre code </span>
+                <span><input type="number" name="code" class="code" value="" id=""
+                    style="width:100px;height: 15px;background: white;border:1px solid black;line-height: 15px;padding: 5px;text-align: center;" /></span>
+              </p>
+              <p>Choisissez la durée de location</p>
+              <div class="row" style="margin-top:-25px;">
+                <div class="col s8 m4">
+                  <div class="input-field col s12">
+                    <select class="browser-default jh" name="jh">
+                      <option value="jh" disabled selected>Jour ou heure</option>
+                      <option value="heure(s)">heure</option>
+                      <option value="jour(s)">jour</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col s8 m4">
+                  <div class="input-field col s12">
+                    <select class="browser-default njh" name="njh">
+                      <option value="njh" disabled selected>nombre</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
+                      <option value="12">12</option>
+                      <option value="13">13</option>
+                      <option value="14">14</option>
+                      <option value="15">15</option>
+                      <option value="16">16</option>
+                      <option value="17">17</option>
+                      <option value="18">18</option>
+                      <option value="19">19</option>
+                      <option value="20">20</option>
+                      <option value="21">21</option>
+                      <option value="22">22</option>
+                      <option value="23">23</option>
+                      <option value="24">24</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <p style="margin-left:20px;margin-top: -20px;">
+                Vous louez le box pour une durée de :
+                <span class="nombre">__</span><span class="jour">__</span>
+              </p>
+              <br /><br />
+              <input type="submit" value="cliquer pour confirmer" disabled class="submit-box" />
+            </form>
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <form action="" method="post">
+        {% csrf_token %}
+
+        <div class="modal-form"></div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">fermer</a>
+    </div>
+  </div>
+
+  <style>
+    .register {
+      margin: 5% 5%;
+    }
+  </style>
+
+  <script src="{% static 'register/js/jquery.js' %}"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $(".modal").modal();
+      $("select").formSelect();
+    });
+  </script>
+  <script>
+    var all_modal = document.querySelectorAll(".modal-trigger");
+    for (var i = 0; i < all_modal.length; i++) {
+      all_modal[i].addEventListener("click", function (e) {
+        parent = e.target.parentElement.parentElement.parentElement;
+
+        receive = parent.querySelector(".content-box-libre");
+        document.querySelector(".modal-form").innerHTML = receive.innerHTML;
+        $(document).ready(function () {
+          $("select").formSelect();
+        });
+
+        modal_content = document.querySelector(".modal-content");
+        modal_content.querySelector(".code").value = Math.floor(
+          1000 + Math.random() * 9000
+        );
+
+        function verif_button() {
+          if (
+            modal_content.querySelector(".jh").value != "jh" &&
+            modal_content.querySelector(".njh").value != "njh"
+          ) {
+            modal_content
+              .querySelector(".submit-box")
+              .removeAttribute("disabled");
+          }
+        }
+        modal_content
+          .querySelector(".jh")
+          .addEventListener("change", function (e) {
+            modal_content.querySelector(".jour").innerHTML = e.target.value;
+            verif_button();
+          });
+
+        modal_content
+          .querySelector(".njh")
+          .addEventListener("change", function (e) {
+            modal_content.querySelector(".nombre").innerHTML = e.target.value;
+            verif_button();
+          });
+      });
+    }
+  </script>
+</body>
+
+</html>
