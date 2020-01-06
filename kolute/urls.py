@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from register import views
+#from register import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('register/',include('register.urls')),
-    path('',views.accueil)
+    path('register-kolute/',include('register.urls')),
+    #path('',views.accueil)
+    path('',include('utilisateur.urls')),
+    path('dash/',include('dashboard.urls')),
 ]
