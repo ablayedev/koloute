@@ -5910,7 +5910,7 @@ ul.select-row-icon li a:hover i.whn-hov {
   color: #fff;
   font-weight: 400;
 }
-.sidebar .sidebar-head h3 i {
+.sidebar .sidebar-head h3 ion-icon {
   font-size: 20px;
 }
 .sidebar:hover .sidebar-head {
@@ -5934,7 +5934,7 @@ ul.select-row-icon li a:hover i.whn-hov {
 .sidebar #side-menu .user-pro ul li a {
   padding-left: 25px;
 }
-.sidebar #side-menu .user-pro .nav-second-level li i {
+.sidebar #side-menu .user-pro .nav-second-level li ion-icon {
   margin-right: 10px;
 }
 #side-menu {
@@ -6014,6 +6014,14 @@ ul.select-row-icon li a:hover i.whn-hov {
 }
 .fa {
   display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+ion-icon {
+  display: none;
   font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
   text-rendering: auto;
@@ -10056,7 +10064,7 @@ ul.pro-amenities li {
   padding: 10px 0;
   font-size: 12px;
 }
-ul.pro-amenities li span i {
+ul.pro-amenities li span ion-icon {
   padding-right: 12px;
 }
 .pro-rd .table > tbody > tr > td:first-child {
