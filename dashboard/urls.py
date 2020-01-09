@@ -4,5 +4,5 @@ app_name="dashboard"
 urlpatterns = [
     path('', views.index,name="index"),
     path('rapport/', views.rapport,name="rapport"),
-  
+    path('historique/',views.historique,name="historique")
 ]

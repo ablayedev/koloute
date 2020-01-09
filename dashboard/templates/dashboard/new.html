@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Tolbi pro</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+  </head>
+  <body class="gray">
+    <div class="entete">
+      <nav style="height: 70px !important;">
+        <div class="nav-wrapper white">
+          <a href="#!" class="brand-logo left">
+            <img
+              src="../../../utilisateur/static/utilisateur/images/logoFinal-1.jpg"
+              width="120"
+              alt=""
+              srcset=""
+            />
+          </a>
+          <a
+            href="#"
+            data-target="mobile-demo slide-out"
+            class="sidenav-trigger right"
+            ><i class="material-icons black-text">menu</i></a
+          >
+
+          <ul class="right hide-on-med-and-down">
+            <li>
+              <a class="black-text" href="sass.html">
+                Accueil
+              </a>
+            </li>
+            <li><a class="black-text" href="badges.html">Profil</a></li>
+            <li>
+              <a class="black-text" href="collapsible.html">Mon rapport</a>
+            </li>
+            <li>
+              <a class="black-text" href="mobile.html"
+                >Historique des rapports</a
+              >
+            </li>
+            <li>
+              <a
+                class="btn green white-text"
+                style="border-radius: 30px;background: #4CAF50;"
+                href="http://tolbico.com"
+                >Visitez notre site</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="content">
+        <div class="row">
+          <div
+            class="col s12 m3 z-depth-2 box"
+            style="background: #4CAF50;padding: 10px;"
+          >
+            <div class="center">
+              <img
+                src="../../static/dashboard/plugins/images/users/profile.jpg"
+                width="100"
+                alt=""
+                class="center"
+                style="border-radius: 48px;"
+              />
+              <p class="center white-text" style="margin-top: -5px;">
+                Agriculteur
+              </p>
+            </div>
+            <ul class="s-p">
+              <li class="white-text">
+                <span class="i"
+                  ><i class="material-icons tiny white-text">
+                    track_changes</i
+                  ></span
+                >
+                <span>Culture:</span>
+                <span>Banane</span>
+              </li>
+              <li class="white-text">
+                <span class="i">
+                  <i class="material-icons tiny white-text">show_chart</i></span
+                >
+                <span>Stade de croissance</span>
+                <span>70 mois</span>
+              </li>
+              <li class="white-text">
+                <span class="i">
+                  <i class="material-icons tiny white-text"
+                    >add_location</i
+                  ></span
+                >
+                <span>Zone de champ</span>
+                <span>Thies</span>
+              </li>
+              <li class="white-text">
+                <span class="i">
+                  <i class="material-icons tiny white-text">date_range</i></span
+                >
+                <span>Date</span>
+                <span>09/01/2020</span>
+              </li>
+            </ul>
+          </div>
+          <div class="col s12 m4  box" style="padding: 10px;">
+            <canvas id="myChart"></canvas>
+          </div>
+          <div class="col s12 m4  box ">
+            <table class="centered">
+              <thead class="thead-dark">
+                <tr>
+                  <th>Stress plante</th>
+                  <th>%</th>
+                  <th>hectare</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Bon</td>
+                  <td>
+                    <span>{{data.fine}}%</span><br />
+                    <div class="progress">
+                      <div
+                        class="determinate"
+                        style="width: 50%;background: green !important;"
+                      ></div>
+                    </div>
+                  </td>
+                  <td>50</td>
+                </tr>
+                <tr>
+                  <td>stress potentiel</td>
+                  <td>
+                    <span>{{data.potential_stress}}%</span><br />
+                    <div class="progress">
+                      <div
+                        class="determinate"
+                        style="width: 20%;background: yellow !important;"
+                      ></div>
+                    </div>
+                  </td>
+                  <td>20</td>
+                </tr>
+                <tr>
+                  <td>Stress</td>
+                  <td>
+                    <span>{{data.stress}}%</span><br />
+                    <div class="progress">
+                      <div
+                        class="determinate"
+                        style="width:30%;background: red !important;"
+                      ></div>
+                    </div>
+                  </td>
+                  <td>30</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="green" style="padding: 10px;">
+          <h4 style="color: white;text-align: center;font-weight: bolder;">
+            TOTAL AREA PLANT STRESS
+          </h4>
+          <p
+            style="text-align: center;width: 30%;margin-left: 35%;"
+            class="white black-text"
+          >
+            {{data.plant_stress_acre}}hectare = {{data.plant_stress_area}}%
+          </p>
+        </div>
+      </div>
+
+      <div class="background-page"></div>
+    </div>
+    <ul id="slide-out" class="sidenav active">
+      <li>
+        <div class="user-view">
+          <div class="background" style="background: #4CAF50;"></div>
+          <a href="#user"
+            ><img
+              class="circle"
+              src="../../static/dashboard/plugins/images/users/profile.jpg"
+          /></a>
+          <a href="#name"><span class="white-text name">John Doe</span></a>
+          <a href="#email"
+            ><span class="white-text email">jdandturk@gmail.com</span></a
+          >
+        </div>
+      </li>
+      <li>
+        <a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a>
+      </li>
+      <li><a href="#!">Second Link</a></li>
+      <li><div class="divider"></div></li>
+      <li><a class="subheader">Subheader</a></li>
+      <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+    </ul>
+    <!--
+    <a href="#" data-target="slide-out" class="sidenav-trigger"
+        ><i class="material-icons">menu</i>
+    </a>
+    -->
+
+    <script src="../../static/dashboard/plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+      p,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      input {
+        font-family: "Montserrat";
+      }
+      body{
+          background:#fafafa;
+      }
+      .box {
+        margin: 50px 20px;
+      }
+      .entete {
+        max-height: 500px;
+      }
+      .site {
+        border: 1px solid white;
+        width: 200px;
+        text-align: center;
+        margin-left: -220px !important;
+        height: 50px;
+        line-height: 50px;
+        margin-top: 10px;
+        border-radius: 30px;
+        background: #4caf50;
+        color: white;
+        transition: 0.5s linear all;
+      }
+      .site a {
+        color: white;
+      }
+
+      .content {
+        margin-left: 10%;
+        width: 90%;
+      }
+      /*.background-page {
+        background-image: url(../../static/dashboard/plugins/images/back.svg);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        min-height: 650px;
+        position: absolute;
+        top: 0px;
+        width: 100%;
+        z-index: -3;
+      }*/
+      .sign {
+        background: #4caf50;
+        color: white;
+        padding: 0px 30px;
+        transition: 0.5s linear all;
+        border-radius: 30px;
+      }
+      .sign:hover {
+        background: white !important;
+        border-color: #4caf50 !important;
+        color: #4caf50 !important;
+      }
+      .site:hover {
+        background: white !important;
+        border-color: #4caf50 !important;
+        color: #4caf50 !important;
+      }
+      .s-p li span {
+        display: inline-block;
+        margin-bottom: 15px;
+      }
+     
+    </style>
+    <script>
+      $(document).ready(function() {
+        $(".sidenav").sidenav();
+        $(".sidenav").sidenav("open");
+      });
+      var ctx = document.getElementById("myChart").getContext("2d");
+      var chart = new Chart(ctx, {
+        type: "doughnut",
+
+        data: {
+          labels: ["Bon", "stress_potentiel", "stress"],
+          datasets: [
+            {
+              label: "",
+              backgroundColor: [
+                "rgb(76, 175, 80)",
+                "rgb(240, 185, 3)",
+                "rgb(255, 0, 0)"
+              ],
+              borderColor: [
+                "rgb(76, 175, 80)",
+                "rgb(240, 185, 3)",
+                "rgb(255, 0, 0)"
+              ],
+              data: [70, 10, 20]
+            }
+          ]
+        },
+
+        // Configuration options go here
+        options: {
+          legend: {
+            display: true,
+            position: "bottom",
+            boxWidt: 10,
+            labels: {
+              fontColor: "rgb(255, 99, 132)"
+            }
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

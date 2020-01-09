@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas id="myChart" style="width:20% !important;height: 100px;"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script>
+      var ctx = document.getElementById("myChart").getContext("2d");
+      var chart = new Chart(ctx, {
+        type: "line",
+
+        data: {
+          labels: ["Bon", "stress_potentiel", "stress"],
+          datasets: [
+            {
+              label: "tomate(08/01/2020)",
+              //backgroundColor: ["rgba(0, 0, 0, 0.1)"],
+              data: [25, 60, 15],
+              backgroundColor: ["rgb(255,255,255,0.1)"],
+              pointStyle: "circle",
+              borderColor:'#4CAF50',
+              pointBorderColor:["RGB (60, 174, 214)"],
+              pointBackgroundColor:["RGB (60, 174, 214)"],
+            },
+            {
+              label: "tomate(07/01/2020)",
+              backgroundColor: ["rgb(255,255,255,0.1)"],
+              data: [35, 40, 25],
+              borderColor:'#F0B903',
+            }
+          ]
+        },
+
+        // Configuration options go here
+        options: {
+          /*scales: {
+            yAxes: [
+              {
+                stacked: true
+              }
+            ]
+          }*/
+        }
+      });
+    </script>
+  </body>
+</html>

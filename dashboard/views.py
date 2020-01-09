@@ -26,3 +26,14 @@ def rapport(request):
         return render(request,'dashboard/rapport.html',context)
     else:
         return redirect('utilisateur:home')
+
+def historique(request):
+    if request.user.is_authenticated:
+        recup=User_data.objects.filter(user=request.user).order_by('-date')[:2]
+        print(recup)
+        context={
+            'recup':recup
+        }
+        return render(request,'dashboard/historique.html',context)
+    else:
+        return redirect('utilisateur:home')

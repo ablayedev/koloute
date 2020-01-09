@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Tolbi pro</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+  </head>
+  <body>
+    <div class="entete">
+      <nav style="height: 70px !important;">
+        <div class="nav-wrapper white">
+          <a href="#!" class="brand-logo" style="margin-left: 75px;">
+            <img
+              src="../../../utilisateur/static/utilisateur/images/logoFinal-1.jpg"
+              width="120"
+              alt=""
+              srcset=""
+            />
+          </a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"
+            ><i class="material-icons">menu</i></a
+          >
+          <ul class="right hide-on-med-and-down">
+            <li><a   href="http://tolbico.com">Visitez notre site</a></li>
+            <li><a   href="http://tolbico.com">Visitez notre site</a></li>
+            <li><a   href="http://tolbico.com">Visitez notre site</a></li>
+            <li><a   href="http://tolbico.com">Visitez notre site</a></li>
+            <li><a   href="http://tolbico.com">Visitez notre site</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="content">
+        <div class="row">
+          <div class="form col s12 m6" style="margin-top: 30px;">
+              <h2 style="font-weight: bolder;">TOLBI PRO</h2>
+              <P style="font-size: 12px;opacity: 0.7;">La plateforme Tolbi Pro vous permet de détecter en temps réel les maladies de vos plantes et de prédire votre niveau de production en se basant sur de puissants algorithmes.</P>
+            <form action="" method="post">
+                <p style="font-weight: bolder;">Renseignez vos identifiants</p>
+                <div class="row" style="margin-top: -25px !important;">
+                    <div class="input-field col s12">
+                      <input id="username" type="Text" class="validate" />
+                      <label for="username">Nom d'utilisateur</label>
+                    </div>
+                </div>
+              <div class="row" style="margin-top: -25px !important;">
+                <div class="input-field col s12">
+                  <input id="password" type="password" class="validate" />
+                  <label for="password">Password</label>
+                </div>
+              </div>
+              <input type="submit" class="btn  white-text sign " value="Se connecter">  
+            </form>
+          </div>
+          <div class="image col c12 m6">
+            <img src="../../../utilisateur/static/utilisateur/images/tolbipro.png" alt="" srcset="">
+          </div>
+        </div>
+      </div>
+
+      <div class="background-page"></div>
+    </div>
+    <ul id="slide-out" class="sidenav active">
+      <li>
+        <div class="user-view">
+          <div class="background" style="background: #4CAF50;"></div>
+          <a href="#user"
+            ><img
+              class="circle"
+              src="../../static/dashboard/plugins/images/users/profile.jpg"
+          /></a>
+          <a href="#name"><span class="white-text name">John Doe</span></a>
+          <a href="#email"
+            ><span class="white-text email">jdandturk@gmail.com</span></a
+          >
+        </div>
+      </li>
+      <li>
+        <a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a>
+      </li>
+      <li><a href="#!">Second Link</a></li>
+      <li><div class="divider"></div></li>
+      <li><a class="subheader">Subheader</a></li>
+      <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+    </ul>
+    <!--
+    <a href="#" data-target="slide-out" class="sidenav-trigger"
+        ><i class="material-icons">menu</i>
+    </a>
+    -->
+
+    <script src="../../static/dashboard/plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+        p,h1,h2,h3,h4,h5,h6,input{
+            font-family: 'Montserrat';
+        }
+     
+    </style>
+    <script>
+      $(document).ready(function() {
+        $(".sidenav").sidenav();
+        $(".sidenav").sidenav("open");
+      });
+    </script>
+    <style></style>
+  </body>
+</html>
