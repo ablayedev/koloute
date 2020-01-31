@@ -90,8 +90,9 @@
       <!-- ============================================================== -->
       {% include 'dashboard/nav.html' %}
       <!-- ============================================================== -->
-
+      
       <div id="page-wrapper">
+       
         <div class="container">
           <!--
           <div class="center p-20" style="width: 20%;">
@@ -347,3 +348,166 @@ margin);
     </script>
   </body>
 </html>
+<!--
+   <div id="page-wrapper" style="background: white !important;">
+        <div
+        style="display: flex;width: 90%;justify-content: space-between;"
+      >
+        <div>
+          <img
+            src="{% static 'utilisateur/images/logoFinal-1.jpg' %}"
+            class="center"
+            width="120"
+            alt=""
+            srcset=""
+            style="margin-left:45%;"
+          />
+        </div>
+        <div style="margin-top: 15px;font-size: 15px;">
+          <ul>
+            <li
+              style="list-style-type: none;font-weight: bolder;color:#4CAF50;font-size: 20px;"
+            >
+              {{request.user.username.capitalize}}
+            </li>
+            <li style="list-style-type: none;font-weight: bolder;">
+              Date : {{data.date|date:"j-m-y"}}
+            </li>
+          </ul>
+        </div>
+      </div>
+       <div style="display: flex;">
+        <div
+        class="container shadow p-3 mb-5 bg-white rounded"
+        id="print"
+        style="border:1px solid white;height: auto;width:70%;background: white;margin-top: 15px;"
+      >
+      
+
+        <br />
+        <div>
+          <div
+            style="display: grid;grid-template-columns: 1fr 1fr;grid-gap: 10px;"
+          >
+            <div>
+              <p
+                style="background: #4CAF50;color: white;height: 40px;line-height: 40px;text-align: center;;"
+              >
+                Surveillance phytosanitaire
+              </p>
+              <ul>
+                <li style="list-style-type: none;">
+                  Culture : {{data.culture}}
+                </li>
+                <li style="list-style-type: none;">
+                  Stade de croissance:{{data.stade}} mois
+                </li>
+              </ul>
+            </div>
+            <div>
+              <p
+                style="background: #F0B903;color: white;height: 40px;line-height: 40px;text-align: center;;"
+              >
+                Stress des plantes
+              </p>
+              <ul>
+                <li style="list-style-type: none;">
+                  zone de champ : {{data.zone_champ}} hectare
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            style="display: grid;grid-template-columns: 1fr 1fr;grid-gap: 10px;"
+          >
+            <table class="table">
+              <thead class="thead-dark">
+                <tr
+                  style="background: white !important;color:black;"
+                  class="z-depth-3"
+                >
+                  <th scope="col">Stress plante</th>
+                  <th scope="col">%</th>
+                  <th scope="col">hectare</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Bon</td>
+                  <td>
+                    <span>{{data.fine}}%</span><br />
+                    <div class="progress">
+                      <div
+                        class="progress-bar"
+                        role="progressbar"
+                        style="width: {{data.fine}}%;background: green !important;"
+                        aria-valuenow="75"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                      ></div>
+                    </div>
+                  </td>
+                  <td>{{data.acre_fine}}</td>
+                </tr>
+                <tr>
+                  <td>stress potentiel</td>
+                  <td>
+                    <span>{{data.potential_stress}}%</span><br />
+                    <div class="progress">
+                      <div
+                        class="progress-bar"
+                        role="progressbar"
+                        style="width: {{data.potential_stress}}%;background: yellow !important;"
+                        aria-valuenow="75"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                      ></div>
+                    </div>
+                  </td>
+                  <td>{{data.acre_potential_stress}}</td>
+                </tr>
+                <tr>
+                  <td>Stress</td>
+                  <td>
+                    <span>{{data.stress}}%</span><br />
+                    <div class="progress">
+                      <div
+                        class="progress-bar"
+                        role="progressbar"
+                        style="width: {{data.stress}}%;background: red !important;"
+                        aria-valuenow="75"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                      ></div>
+                    </div>
+                  </td>
+                  <td>{{data.acre_stress}}</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div>
+              <canvas id="myChart"></canvas>
+            </div>
+          </div>
+        </div>
+        <div style="background: #4CAF50;padding: 15px;">
+          <h4 style="color: white;text-align: center;font-weight: bolder;">
+            TOTAL AREA PLANT STRESS
+          </h4>
+          <p
+            style="text-align: center; margin-left: 30%;background:white
+            ;color: #4CAF50;font-size:28px;width:50%;height: 40px;line-height: 40px;font-weight: bolder;"
+          >
+            {{data.plant_stress_acre}}hectare = {{data.plant_stress_area}}%
+          </p>
+        </div>
+        <br />
+       
+        </div>
+        <div style="width:30%;margin-top:150px;">
+          <img src="{% static 'dashboard/plugins/images/ndvi.png' %}" width="400" alt="" srcset="">
+        </div>
+       </div>
+      </div>
+-->

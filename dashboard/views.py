@@ -20,9 +20,18 @@ def rapport(request):
             print(data)
             context={
                 'data':data,
+                'all':User_data.objects.filter(user=request.user)
             }
         else:
             context={}
+        if request.POST.get('post_date'):
+            id_post=request.POST.get('id_date')
+            print(id_post)
+            data_post=User_data.objects.get(id=id_post)
+            context={
+                'data':data_post,
+                'all':User_data.objects.filter(user=request.user)
+            }
         return render(request,'dashboard/rapport.html',context)
     else:
         return redirect('utilisateur:home')

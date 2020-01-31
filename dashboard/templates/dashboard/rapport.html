@@ -2,348 +2,302 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css"
-      integrity="sha256-aa0xaJgmK/X74WM224KMQeNQC2xYKwlAt08oZqjeF0E="
-      crossorigin="anonymous"
-    />
-    <!-- jQuery -->
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
 
-    <title>
-      Tolbi pro
-    </title>
-    <!-- Bootstrap Core CSS -->
-    <link
-      href="{% static 'dashboard/bootstrap/dist/css/bootstrap.min.css' %}"
-      rel="stylesheet"
-    />
-    <!-- Menu CSS -->
-    <link
-      href="{% static 'dashboard/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css' %}"
-      rel="stylesheet"
-    />
-    <!-- toast CSS -->
-    <link
-      href="{% static 'dashboard/plugins/bower_components/toast-master/css/jquery.toast.css' %}"
-      rel="stylesheet"
-    />
-    <!-- morris CSS -->
-    <link
-      href="{% static 'dashboard/plugins/bower_components/morrisjs/morris.css' %}"
-      rel="stylesheet"
-    />
-    <!-- chartist CSS -->
-    <link
-      href="{% static 'dashboard/plugins/bower_components/chartist-js/dist/chartist.min.css' %}"
-      rel="stylesheet"
-    />
-    <link
-      href="{% static 'dashboard/plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css' %}"
-      rel="stylesheet"
-    />
-    <!-- animation CSS -->
-    <link href="{% static 'dashboard/css/animate.css' %}" rel="stylesheet" />
-    <!-- Custom CSS -->
-    <link href="{% static 'dashboard/css/style.css' %}" rel="stylesheet" />
-    <!-- color CSS -->
-    <link
-      href="{% static 'dashboard/css/colors/default.css' %}"
-      id="theme"
-      rel="stylesheet"
-    />
-    <!-- HTML5 Shim and Respond.js' %} IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js' %} doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css"
+    integrity="sha256-aa0xaJgmK/X74WM224KMQeNQC2xYKwlAt08oZqjeF0E=" crossorigin="anonymous" />
+  <!-- jQuery -->
+
+  <title>
+    Tolbi pro
+  </title>
+  <!-- Bootstrap Core CSS -->
+  <link href="{% static 'dashboard/bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet" />
+  <!-- Menu CSS -->
+  <link href="{% static 'dashboard/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css' %}"
+    rel="stylesheet" />
+  <!-- toast CSS -->
+  <link href="{% static 'dashboard/plugins/bower_components/toast-master/css/jquery.toast.css' %}" rel="stylesheet" />
+  <!-- morris CSS -->
+  <link href="{% static 'dashboard/plugins/bower_components/morrisjs/morris.css' %}" rel="stylesheet" />
+  <!-- chartist CSS -->
+  <link href="{% static 'dashboard/plugins/bower_components/chartist-js/dist/chartist.min.css' %}" rel="stylesheet" />
+  <link
+    href="{% static 'dashboard/plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css' %}"
+    rel="stylesheet" />
+  <!-- animation CSS -->
+  <link href="{% static 'dashboard/css/animate.css' %}" rel="stylesheet" />
+  <!-- Custom CSS -->
+  <link href="{% static 'dashboard/css/style.css' %}" rel="stylesheet" />
+  <!-- color CSS -->
+  <link href="{% static 'dashboard/css/colors/default.css' %}" id="theme" rel="stylesheet" />
+  <!-- HTML5 Shim and Respond.js' %} IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js' %} doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js' %}"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js' %}/1.4.2/respond.min.js' %}"></script>
     <![endif]-->
-  </head>
+</head>
 
-  <body class="fix-header">
+<body class="fix-header">
+  <!-- ============================================================== -->
+  <!-- Preloader -->
+  <!-- ============================================================== -->
+  <div class="preloader">
+    <svg class="circular" viewBox="25 25 50 50">
+      <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+    </svg>
+  </div>
+  <!-- ============================================================== -->
+  <!-- Wrapper -->
+  <div id="wrapper">
     <!-- ============================================================== -->
-    <!-- Preloader -->
+    {% include 'dashboard/nav.html' %}
     <!-- ============================================================== -->
-    <div class="preloader">
-      <svg class="circular" viewBox="25 25 50 50">
-        <circle
-          class="path"
-          cx="50"
-          cy="50"
-          r="20"
-          fill="none"
-          stroke-width="2"
-          stroke-miterlimit="10"
-        />
-      </svg>
-    </div>
-    <!-- ============================================================== -->
-    <!-- Wrapper -->
-    <div id="wrapper">
-      <!-- ============================================================== -->
-      {% include 'dashboard/nav.html' %}
-      <!-- ============================================================== -->
-
-      <div id="page-wrapper" style="background: white !important;">
-        <div
-        style="display: flex;width: 90%;justify-content: space-between;"
-      >
-        <div>
-          <img
-            src="{% static 'utilisateur/images/logoFinal-1.jpg' %}"
-            class="center"
-            width="120"
-            alt=""
-            srcset=""
-            style="margin-left:45%;"
-          />
+    <div id="page-wrapper">
+      <div class="container-fluid">
+        <div class="row bg-title">
+          <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+            <h4 class="page-title">TOLBI</h4>
+          </div>
+          <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+            <a href="https://wrappixel.com/templates/ampleadmin/" target="_blank"
+              class="btn btn-SUCCES pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light">{{data.date|date:"j-m-y"}}</a>
+            <ol class="breadcrumb">
+              <li><a href="#">{{request.user.username.capitalize}}</a></li>
+            </ol>
+          </div>
+          <!-- /.col-lg-12 -->
         </div>
-        <div style="margin-top: 15px;font-size: 15px;">
-          <ul>
-            <li
-              style="list-style-type: none;font-weight: bolder;color:#4CAF50;font-size: 20px;"
-            >
-              {{request.user.username.capitalize}}
-            </li>
-            <li style="list-style-type: none;font-weight: bolder;">
-              Date : {{data.date|date:"j-m-y"}}
-            </li>
-          </ul>
-        </div>
-      </div>
-       <div style="display: flex;">
-        <div
-        class="container shadow p-3 mb-5 bg-white rounded"
-        id="print"
-        style="border:1px solid white;height: auto;width:70%;background: white;margin-top: 15px;"
-      >
-      
-
-        <br />
-        <div>
-          <div
-            style="display: grid;grid-template-columns: 1fr 1fr;grid-gap: 10px;"
-          >
-            <div>
-              <p
-                style="background: #4CAF50;color: white;height: 40px;line-height: 40px;text-align: center;;"
-              >
-                Surveillance phytosanitaire
-              </p>
-              <ul>
-                <li style="list-style-type: none;">
-                  Culture : {{data.culture}}
+        <!-- /.row -->
+        <!-- ============================================================== -->
+        <!-- Different data widgets -->
+        <!-- ============================================================== -->
+        <!-- .row -->
+        <div class="row">
+          <div class="col-lg-4 col-sm-6 col-xs-12">
+            <div class="white-box analytics-info">
+              <h3 class="box-title">Plantes en bonne santé</h3>
+              <ul class="list-inline two-part">
+                <li>
+                  <div id="sparklinedash"></div>
                 </li>
-                <li style="list-style-type: none;">
-                  Stade de croissance:{{data.stade}} mois
-                </li>
-              </ul>
-            </div>
-            <div>
-              <p
-                style="background: #F0B903;color: white;height: 40px;line-height: 40px;text-align: center;;"
-              >
-                Stress des plantes
-              </p>
-              <ul>
-                <li style="list-style-type: none;">
-                  zone de champ : {{data.zone_champ}} hectare
-                </li>
+                <li class="text-right"><i class="ti-arrow-up text-success"></i> <span
+                    class="counter text-success">{{data.fine}}</span></li>
               </ul>
             </div>
           </div>
-          <div
-            style="display: grid;grid-template-columns: 1fr 1fr;grid-gap: 10px;"
-          >
-            <table class="table">
-              <thead class="thead-dark">
-                <tr
-                  style="background: white !important;color:black;"
-                  class="z-depth-3"
-                >
-                  <th scope="col">Stress plante</th>
-                  <th scope="col">%</th>
-                  <th scope="col">hectare</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Bon</td>
-                  <td>
-                    <span>{{data.fine}}%</span><br />
-                    <div class="progress">
-                      <div
-                        class="progress-bar"
-                        role="progressbar"
-                        style="width: {{data.fine}}%;background: green !important;"
-                        aria-valuenow="75"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      ></div>
-                    </div>
-                  </td>
-                  <td>{{data.acre_fine}}</td>
-                </tr>
-                <tr>
-                  <td>stress potentiel</td>
-                  <td>
-                    <span>{{data.potential_stress}}%</span><br />
-                    <div class="progress">
-                      <div
-                        class="progress-bar"
-                        role="progressbar"
-                        style="width: {{data.potential_stress}}%;background: yellow !important;"
-                        aria-valuenow="75"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      ></div>
-                    </div>
-                  </td>
-                  <td>{{data.acre_potential_stress}}</td>
-                </tr>
-                <tr>
-                  <td>Stress</td>
-                  <td>
-                    <span>{{data.stress}}%</span><br />
-                    <div class="progress">
-                      <div
-                        class="progress-bar"
-                        role="progressbar"
-                        style="width: {{data.stress}}%;background: red !important;"
-                        aria-valuenow="75"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      ></div>
-                    </div>
-                  </td>
-                  <td>{{data.acre_stress}}</td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="col-lg-4 col-sm-6 col-xs-12">
+            <div class="white-box analytics-info">
+              <h3 class="box-title">Potentiel stress</h3>
+              <ul class="list-inline two-part">
+                <li>
+                  <div id="sparklinedash2"></div>
+                </li>
+                <li class="text-right"><i class="ti-arrow-up text-purple"></i> <span
+                    class="counter text-purple">{{data.potential_stress}}</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-6 col-xs-12">
+            <div class="white-box analytics-info">
+              <h3 class="box-title">Plantes malades</h3>
+              <ul class="list-inline two-part">
+                <li>
+                  <div id="sparklinedash3"></div>
+                </li>
+                <li class="text-right"><i class="ti-arrow-up text-info"></i> <span
+                    class="counter text-info">{{data.stress}}</span></li>
+              </ul>
+            </div>
+          </div>
+          <style>
+            #sparklinedash3 canvas {
+              color: red !important;
+            }
+          </style>
+        </div>
+        <!--/.row -->
+        <!--row -->
+        <!-- /.row -->
 
-            <div>
+
+        <!-- ============================================================== -->
+        <!-- table -->
+        <!-- ============================================================== -->
+        <div class="row">
+          <div class="col-md-12 col-lg-12 col-sm-12">
+            <div class="white-box">
+              <div class="col-md-3 col-sm-6 col-xs-7 pull-right">
+                <form action="" method="post" style="display: flex;">
+                  {% csrf_token %}
+                  <select class="form-control pull-right row b-none" name="id_date">
+                    <option disabled selected>Choisissez une date</option>
+                    {% for all in all %}
+                      <option value="{{all.id}}">{{all.date}}</option>
+                    {% endfor %}
+                      
+                  </select>
+                  <input type="submit" name="post_date" value="Valider" class="btn" style="background: green;color:white;">
+                </form>
+              </div>
+              <h3 class="box-title">Surveillance phytosanitaire</h3>
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Type de culture</th>
+                      <th>Stade de croissance</th>
+                      <th>Zone de champ</th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td class="txt-oflo">{{data.culture}}</td>
+                      <td>{{data.stade}} mois</td>
+                      <td class="txt-oflo">{{data.zone_champ}} hectare</td>
+
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- chat-listing & recent comments -->
+        <!-- ============================================================== -->
+        <div class="row">
+          <!-- .col -->
+          <div class="col-md-12 col-lg-8 col-sm-12">
+            <div class="white-box">
+              <h3 class="box-title">Représentation graphique</h3>
               <canvas id="myChart"></canvas>
             </div>
           </div>
+          <div class="col-lg-4 col-md-6 col-sm-12">
+            <img src="{% static 'dashboard/plugins/images/ndvi.png' %}" width="400" alt="" srcset="">
+          </div>
+          <!-- /.col -->
         </div>
         <div style="background: #4CAF50;padding: 15px;">
           <h4 style="color: white;text-align: center;font-weight: bolder;">
             TOTAL AREA PLANT STRESS
           </h4>
-          <p
-            style="text-align: center; margin-left: 30%;background:white
-            ;color: #4CAF50;font-size:28px;width:50%;height: 40px;line-height: 40px;font-weight: bolder;"
-          >
+          <p style="text-align: center; margin-left: 30%;background:white
+                ;color: #4CAF50;font-size:28px;width:50%;height: 40px;line-height: 40px;font-weight: bolder;">
             {{data.plant_stress_acre}}hectare = {{data.plant_stress_area}}%
           </p>
         </div>
-        <br />
-       
-        </div>
-        <div style="width:30%;margin-top:150px;">
-          <img src="{% static 'dashboard/plugins/images/ndvi.png' %}" width="400" alt="" srcset="">
-        </div>
-       </div>
       </div>
+      <!-- /.container-fluid -->
+      <footer class="footer text-center"> 2020 &copy; by TOLBI </footer>
     </div>
 
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    <script src="{% static 'dashboard/plugins/bower_components/jquery/dist/jquery.min.js' %}"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="{% static 'dashboard/bootstrap/dist/js/bootstrap.min.js' %}"></script>
-    <!-- Menu Plugin JavaScript -->
-    <script src="{% static 'dashboard/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js' %}"></script>
-    <!--slimscroll JavaScript -->
-    <script src="{% static 'dashboard/js/jquery.slimscroll.js' %}"></script>
-    <!--Wave Effects -->
-    <script src="{% static 'dashboard/js/waves.js' %}"></script>
-    <!--Counter js -->
-    <script src="{% static 'dashboard/plugins/bower_components/waypoints/lib/jquery.waypoints.js' %}"></script>
-    <script src="{% static 'dashboard/plugins/bower_components/counterup/jquery.counterup.min.js' %}"></script>
-    <!-- chartist chart -->
-    <script src="{% static 'dashboard/plugins/bower_components/chartist-js/dist/chartist.min.js' %}"></script>
-    <script src="{% static 'dashboard/plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js' %}"></script>
-    <!-- Sparkline chart JavaScript -->
-    <script src="{% static 'dashboard/plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js' %}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="{% static 'dashboard/js/custom.min.js' %}"></script>
-    <script src="{% static 'dashboard/js/dashboard1.js' %}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
-    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
-    <!--
+  </div>
+
+  <!-- End Wrapper -->
+  <!-- ============================================================== -->
+  <!-- ============================================================== -->
+  <!-- All Jquery -->
+  <!-- ============================================================== -->
+  <script src="{% static 'dashboard/plugins/bower_components/jquery/dist/jquery.min.js' %}"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script src="{% static 'dashboard/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+  <!-- Menu Plugin JavaScript -->
+  <script src="{% static 'dashboard/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js' %}"></script>
+  <!--slimscroll JavaScript -->
+  <script src="{% static 'dashboard/js/jquery.slimscroll.js' %}"></script>
+  <!--Wave Effects -->
+  <script src="{% static 'dashboard/js/waves.js' %}"></script>
+  <!--Counter js -->
+  <script src="{% static 'dashboard/plugins/bower_components/waypoints/lib/jquery.waypoints.js' %}"></script>
+  <script src="{% static 'dashboard/plugins/bower_components/counterup/jquery.counterup.min.js' %}"></script>
+  <!-- chartist chart -->
+  <script src="{% static 'dashboard/plugins/bower_components/chartist-js/dist/chartist.min.js' %}"></script>
+  <script
+    src="{% static 'dashboard/plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js' %}"></script>
+  <!-- Sparkline chart JavaScript -->
+  <script src="{% static 'dashboard/plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js' %}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <!-- Custom Theme JavaScript -->
+  <script src="{% static 'dashboard/js/custom.min.js' %}"></script>
+  <script src="{% static 'dashboard/js/dashboard1.js' %}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+  <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+  <!--
     <script src="{% static 'dashboard/plugins/bower_components/toast-master/js/jquery.toast.js' %}"></script>
     -->
-    <script>
-            var ctx = document.getElementById('myChart').getContext('2d');
-            var chart = new Chart(ctx, {
+  <script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var chart = new Chart(ctx, {
 
-              type: 'doughnut',
+      type: 'doughnut',
 
 
-              data: {
-                labels: [
-                  "Bon",
-                  "stress_potentiel",
-                  "stress",
-                ],
-                datasets: [
-                  {
-                    label: "",
-                    backgroundColor:[
-                     "rgb(76, 175, 80)",
-                     "rgb(240, 185, 3)",
-                     "rgb(255, 0, 0)",
+      data: {
+        labels: [
+          "Bon",
+          "stress_potentiel",
+          "stress",
+        ],
+        datasets: [
+          {
+            label: "",
+            backgroundColor: [
+              "rgb(76, 175, 80)",
+              "rgb(240, 185, 3)",
+              "rgb(255, 0, 0)",
 
-                    ],
-                    borderColor:
-                    [
-                    "rgb(76, 175, 80)",
-                     "rgb(240, 185, 3)",
-                     "rgb(255, 0, 0)",
-                    ],
-                    data: [{{data.fine}}, {{data.potential_stress}}, {{data.stress}},]
+            ],
+            borderColor:
+              [
+                "rgb(76, 175, 80)",
+                "rgb(240, 185, 3)",
+                "rgb(255, 0, 0)",
+              ],
+            data: [{{ data.fine }}, {{ data.potential_stress }}, {{ data.stress }},]
                   }
                 ]
               },
 
-              // Configuration options go here
-              options: {}
+    // Configuration options go here
+    options: { }
             });
-        
-           /*
-            $(document).ready(function(){
-              var elementHtml=$('#print').html()
 
-              console.log(elementHtml)
-              var specialElementHandlers = {
-                '#elementHtml': function (element, renderer) {
-                  return true;
-                  }
-                };
-                $('.rapport').click(function(){
-                var doc =new jsPDF()
-                doc.fromHTML(elementHtml,15,15,{
-                   width:170,
-                   "elementHandlers":specialElementHandlers
-                },
-      function(bla){doc.save('saveInCallback.pdf');},
-      margin);
+    /*
+     $(document).ready(function(){
+       var elementHtml=$('#print').html()
 
-              })
+       console.log(elementHtml)
+       var specialElementHandlers = {
+         '#elementHtml': function (element, renderer) {
+           return true;
+           }
+         };
+         $('.rapport').click(function(){
+         var doc =new jsPDF()
+         doc.fromHTML(elementHtml,15,15,{
+            width:170,
+            "elementHandlers":specialElementHandlers
+         },
+function(bla){doc.save('saveInCallback.pdf');},
+margin);
 
-            })*/
-    </script>
-  </body>
+       })
+
+     })*/
+  </script>
+</body>
+
 </html>

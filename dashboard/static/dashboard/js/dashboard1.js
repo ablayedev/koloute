@@ -55,7 +55,7 @@
              barWidth: '4',
              resize: true,
              barSpacing: '5',
-             barColor: '#7460ee'
+             barColor: '#cddc39'
          });
          $('#sparklinedash3').sparkline([0, 5, 6, 10, 9, 12, 4, 9], {
              type: 'bar',
@@ -63,7 +63,7 @@
              barWidth: '4',
              resize: true,
              barSpacing: '5',
-             barColor: '#11a0f8'
+             barColor: '#f44336'
          });
          $('#sparklinedash4').sparkline([0, 5, 6, 10, 9, 12, 4, 9], {
              type: 'bar',
